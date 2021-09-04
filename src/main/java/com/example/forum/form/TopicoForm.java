@@ -3,11 +3,20 @@ package com.example.forum.form;
 import com.example.forum.model.Curso;
 import com.example.forum.model.Topico;
 import com.example.forum.repository.CursoRepository;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class TopicoForm {
 
+    @NotNull @NotEmpty @Length (min = 5)
     private String titulo;
+
+    @NotNull @NotEmpty @Length (min = 10)
     private String mensagem;
+
+    @NotNull @NotEmpty
     private String nomeCurso;
 
     public void setTitulo(String titulo) {
