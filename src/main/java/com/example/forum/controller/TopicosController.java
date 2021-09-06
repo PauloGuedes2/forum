@@ -1,5 +1,6 @@
 package com.example.forum.controller;
 
+import com.example.forum.dto.DetalhesDoTopicoDto;
 import com.example.forum.dto.TopicoDto;
 import com.example.forum.form.TopicoForm;
 import com.example.forum.model.Topico;
@@ -42,6 +43,12 @@ public class TopicosController {
 
         URI uri = uriComponentsBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
         return ResponseEntity.created(uri).body(new TopicoDto(topico));
+    }
+
+    @GetMapping("/{id}")
+    public DetalhesDoTopicoDto detalhar(@PathVariable Long id) {
+        Topico topico = topicoRepository.getById(id);
+        return new DetalhesDoTopicoDto(topico);
     }
 
 }
