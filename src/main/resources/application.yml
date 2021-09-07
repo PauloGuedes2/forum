@@ -10,6 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
       show_sql: true
+      format_sql: true
     defer-datasource-initialization: true
     open-in-view: true
 
